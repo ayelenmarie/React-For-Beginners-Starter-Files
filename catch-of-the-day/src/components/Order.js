@@ -7,7 +7,8 @@ class Order extends React.Component {
   static propTypes = {
     fishes: PropTypes.object,
     order: PropTypes.object,
-    removeFromOrder: PropTypes.func
+    removeFromOrder: PropTypes.func,
+    deleteFromOrder: PropTypes.func
   };
   renderOrder = key => {
     const fish = this.props.fishes[key];
@@ -46,7 +47,11 @@ class Order extends React.Component {
             lbs {fish.name}
             {formatPrice(count * fish.price)}
             <button onClick={() => this.props.removeFromOrder(key)}>
-              &times;
+              &#x02193;
+            </button>
+            <span></span>
+            <button onClick={() => this.props.deleteFromOrder(key)}>
+              &empty;
             </button>
           </span>
         </li>
